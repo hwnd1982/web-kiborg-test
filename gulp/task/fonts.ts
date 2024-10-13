@@ -136,6 +136,13 @@ export const otfToTtf = (done: TransformCallback) => {
     done();
     return;
   }
+  
+  
+  const dir = app.path.src.fontsOtf.replace(/^([^*]*)(.*)$/g, '$1')
+
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
 
   return (
     app.gulp
