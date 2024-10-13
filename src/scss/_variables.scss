@@ -1,0 +1,61 @@
+$header-text: #4B465CE5;
+$text: #4B465CE5;
+$error: #EA5455;
+$placeholder-text: #4B465C66;
+$button-text: #fff;
+$bg-card: #fff;
+$bg-page: #fff;
+$card-shadow: 0 0.25rem 1.125rem 0 #4B465C1A;
+$white: #fff;
+$trans: #0000;
+$primary: #7367F0FF;
+$primary-650: #7367F0A6;
+$divider: #DBDADE;
+
+.hl-m-m {
+  font-size: 1.625rem;
+  font-weight: 500;
+  line-height: calc(36 / 26);
+}
+
+.text {
+  font-size: 0.9375rem;
+  line-height: calc(22 / 15);
+}
+
+.text-label {
+  font-size: 0.8125rem;
+  line-height: calc(17.7 / 13);
+}
+
+.text-button {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* MEDIA QUERIES */
+$xxl: 1440px;
+$xl: 1280px;
+$lg: 1024px;
+$md: 992px;
+$sm: 767px;
+$xsm: 576px;
+$xxsm: 390px;
+
+/* ANIMATIONS */
+$transition-duration: 0.3s;
+
+%button-reset {
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+%list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,38 @@
+{
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "noImplicitReturns": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "es2020",
+    "lib": ["es2020", "dom", "dom.iterable"],
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": true,
+    "esModuleInterop": true,
+    "strictPropertyInitialization": false,
+    "noImplicitAny": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@yandex/ymaps3-types"
+    ],
+    "paths": {
+      "ymaps3": [
+        "./node_modules/@yandex/ymaps3-types"
+      ]
+    }
+  }
+}

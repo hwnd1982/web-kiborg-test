@@ -1,0 +1,24 @@
+{
+  "editor.tabSize": 2,
+  "editor.indentSize": "tabSize",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "tailwindCSS.rootFontSize": 10,
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "twig"
+  },
+  "tailwindCSS.emmetCompletions": true,
+  "emmet.includeLanguages": {
+    "twig": "html"
+  },
+  "files.associations": {
+    ".twig": "html"
+  },
+  "[twig]": {
+    "editor.defaultFormatter": "mblode.twig-language-2"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "css.customData": [".vscode/tailwind.json"],
+  "scss.lint.unknownAtRules": "ignore"
+}

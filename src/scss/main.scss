@@ -1,0 +1,15 @@
+/* Шрифты. */
+// @import "./fonts";
+
+/* Переменные и миксины. */
+@import "./mixins";
+@import "./variables";
+
+@import "../../node_modules//bootstrap/scss/bootstrap";
+
+/* Базовые настройки и сброс HTML. */
+@import "./base/base";
+
+@import "./ui";
+@import "./components";
+@import "./widgets";

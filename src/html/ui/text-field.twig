@@ -1,0 +1,72 @@
+{% set props = ({
+  class: "",
+  name: "",
+
+  label: "",
+  labelClass: "",
+
+  inputClass: "",
+  inputValue: "",
+  inputType: "text",
+  inputAttributes: "",
+  
+  validate: "",
+
+  placeholder: "",
+
+  type: "",
+
+  error: "",
+  errorRequired: "Это обязательное поле",
+
+  endContent: "",
+})|merge(props ?: {}) %}
+
+<div class="text-field js-text-field{{ props.class ? " " ~ props.class }}{{ props.type ? " text-field-type--" ~ props.type }}">
+	{% if props.label %}
+		<label class="text-field__label mb-1{{ props.labelClass ? " " ~ props.labelClass }}" for="{{ props.name }}">{{ props.label }}
+		</label>
+	{% endif %}
+
+	<div class="text-field__inner">
+		<{{props.type?:"input"}} class="text-field__input js-text-field-input{{ props.inputClass ? " " ~ props.inputClass }}" type="{{ props.inputType }}" name="{{ props.name }}" placeholder="{{ props.placeholder }}" value="{{ props.inputValue }}" {{ props.validate ? " data-validate='" ~ props.validate ~ "'" }} {{ props.inputAttributes }}></{{props.type?:"input"}}>
+
+		{% if props.inputType == "password" %}
+			<button class="text-field__switch-mode button button-size--s button-type--clear js-text-field-switch-mode" type="button">
+
+				{% include "../ui/icon.twig" with {
+            props: {
+              width: 24,
+              height: 24,
+              href: "security-off",
+              class: "icon icon_fill_none"
+            }
+          } only %}
+
+				{% include "../ui/icon.twig" with {
+            props: {
+              width: 24,
+              height: 24,
+              href: "security-on",
+              class: "icon icon_fill_none"
+            }
+          } only %}
+			</button>
+
+		{% elseif props.endContent %}
+			<div class="text-field__endContent">{{ props.endContent }}</div>
+		{% endif %}
+	</div>
+
+	{% if props.errorRequired or props.error %}
+		<div class="text-field__errors mt-1">
+			{% if props.errorRequired %}
+				<p class="text-field__error _required">{{ props.errorRequired }}</p>
+			{% endif %}
+
+			{% if props.error %}
+				<p class="text-field__error js-error-message">{{ props.error }}</p>
+			{% endif %}
+		</div>
+	{% endif %}
+</div>

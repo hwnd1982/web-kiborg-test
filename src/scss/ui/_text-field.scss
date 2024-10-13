@@ -1,0 +1,133 @@
+.text-field {
+  position: relative;
+
+  &__label {
+    display: block;
+    color: $placeholder-text;
+    @extend .text-label;
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.9375rem;
+    box-shadow: 0 0 0 1px inset $divider;
+    transition: $transition-duration;
+
+    .is-error & {
+      box-shadow: 0 0 0 1px inset $error;
+    }
+  }
+
+  &__inner-textarea {
+    scrollbar-width: thin;
+    scrollbar-color: #cfd5dd #fff0;
+
+    & ::-webkit-scrollbar {
+      width: 1.5rem;
+    }
+
+    & ::-webkit-scrollbar-thumb {
+      border-radius: 1rem;
+    }
+  }
+
+  &__input[type="password"]::placeholder {
+    height: 0.875rem;
+  }
+
+  &__input, &__textarea {
+    background-color: #fff3;
+    width: 100%;
+    padding: 0;
+    border: none;
+    outline: none;
+    @extend .text;
+  }
+
+  &__textarea {
+    resize: none;
+  }
+
+  &__errors {
+    display: none;
+    color: $error;
+    @extend .text-label;
+  }
+
+  &__error {
+    margin-bottom: 0;
+  }
+  
+  &__switch-mode {
+    position: relative;
+    height: 1.5rem;
+    padding: 0;
+
+    .icon {
+      transition: $transition-duration;
+    }
+
+    .icon:last-child {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    [type="text"] + &>.icon:first-child, [type="password"] + &>.icon:last-child {
+      opacity: 0;
+    }
+
+    [type="password"] + &>.icon:first-child, [type="text"] + &>.icon:last-child {
+      opacity: 1;
+    }
+  }
+}
+
+.text-field.is-error {
+  .text-field {
+    &__errors {
+      display: block;
+    }
+
+    &__error {
+      display: block;
+
+      &._required {
+        display: none;
+      }
+    }
+  }
+}
+
+.text-field.is-error.is-error-required {
+  .text-field {
+    &__error {
+      display: none;
+
+      &._required {
+        display: block;
+      }
+    }
+  }
+}
+
+.text-field.is-disabled {
+  @apply opacity-30;
+
+  .text-field {
+    &__input {
+    }
+  }
+
+  &.is-error {
+    .text-field {
+      &__errors {
+        display: none;
+      }
+    }
+  }
+}
+

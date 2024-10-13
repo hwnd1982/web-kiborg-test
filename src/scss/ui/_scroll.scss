@@ -1,0 +1,125 @@
+.custom-scroll:not(.ps) {
+  overflow-y: auto;
+}
+
+.custom-scroll {
+  position: relative;
+}
+
+.custom-scroll.custom-scroll {
+  &_size {
+    &_m {
+      --ps-thumb-color: #cfd5dd;
+      --ps-color: rgba(242, 238, 239, 0);
+      --ps-size: 0.6rem;
+      --ps-thumb-size: 0.6rem;
+
+      & .ps__thumb-y,
+      & .ps__thumb-x {
+        border-radius: 1rem;
+      }
+    }
+  }
+}
+
+.ps {
+  --ps-x-margin: 0;
+  --ps-y-margin: 0;
+  --ps-size: 0.2rem;
+  --ps-thumb-size: 0.2rem;
+  --ps-thumb-color: #7367F0A6;
+  --ps-color: #fff0;
+  --ps-raduis: 0;
+
+  overflow: hidden !important;
+  overflow-anchor: none;
+  -ms-overflow-style: none;
+  touch-action: auto;
+  -ms-touch-action: auto;
+
+  &__rail-x,
+  &__rail-y {
+    position: absolute;
+    display: none;
+    z-index: 50;
+    transition-property: background;
+    background-color: var(--ps-color);
+  }
+
+  &__rail-x {
+    bottom: 0;
+    margin: var(--ps-x-margin);
+    height: var(--ps-size);
+  }
+
+  &__rail-y {
+    right: 0;
+    left: auto !important;
+    margin: var(--ps-y-margin);
+    width: var(--ps-size);
+  }
+
+  &__thumb-x,
+  &__thumb-y {
+    position: absolute;
+    transition-property: background, opacity;
+    background-color: var(--ps-thumb-color);
+    border-radius: var(--ps-raduis);
+    transition: $transition-duration, $transition-duration;
+  }
+
+  &__thumb-x {
+    height: var(--ps-thumb-size);
+    bottom: calc((var(--ps-size) - var(--ps-thumb-size)) / 2);
+    border-radius: var(--ps-thumb-size);
+  }
+
+  &__thumb-y {
+    width: var(--ps-thumb-size);
+    right: calc((var(--ps-size) - var(--ps-thumb-size)) / 2);
+    border-radius: var(--ps-thumb-size);
+  }
+
+  &.ps--active-x > .ps__rail-x,
+  &.ps--active-y > .ps__rail-y {
+    display: block;
+  }
+
+  &:hover > .ps__rail-x,
+  &:hover > .ps__rail-y,
+  &.ps--focus > .ps__rail-x,
+  &.ps--focus > .ps__rail-y,
+  &.ps--scrolling-x > .ps__rail-x,
+  &.ps--scrolling-y > .ps__rail-y {
+    opacity: 0.9;
+  }
+
+  &__rail-x:hover,
+  &__rail-y:hover,
+  &__rail-x:focus,
+  &__rail-y:focus,
+  &__rail-x.ps--clicking,
+  &__rail-y.ps--clicking {
+    opacity: 0.9;
+  }
+
+  &__rail-x:hover > .ps__thumb-x,
+  &__rail-x:focus > .ps__thumb-x,
+  &__rail-x.ps--clicking .ps__thumb-x {
+    height: var(--ps-size);
+  }
+
+  &__rail-y:hover > .ps__thumb-y,
+  &__rail-y:focus > .ps__thumb-y,
+  &__rail-y.ps--clicking .ps__thumb-y {
+    width: var(--ps-size);
+  }
+
+  @supports (-ms-overflow-style: none) {
+    overflow: auto !important;
+  }
+
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    overflow: auto !important;
+  }
+}

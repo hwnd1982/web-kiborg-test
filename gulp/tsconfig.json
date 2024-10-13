@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "types": [
+      "chokidar",
+      "glob",
+      "glob-stream",
+      "gulp",
+      "minimatch",
+      "node",
+      "orchestrator",
+      "q",
+      "sinon",
+      "tape",
+      "undertaker",
+      "vinyl",
+      "vinyl-fs"
+    ]
+  },
+  "exclude": ["node_modules", "src"],
+  "files": ["../gulpfile.ts"]
+}

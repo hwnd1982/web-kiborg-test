@@ -1,0 +1,18 @@
+.scrollbar {
+  &-vertical {
+    scrollbar-width: thin;
+    scrollbar-color: $primary-650 $trans;
+
+    &::-webkit-scrollbar {
+      
+    }
+
+    &::-webkit-scrollbar-track {
+      
+    }
+
+    &::-webkit-scrollbar-thumb {
+
+    }
+  }
+}

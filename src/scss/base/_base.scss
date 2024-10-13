@@ -1,0 +1,143 @@
+* {
+  box-sizing: inherit;
+}
+
+html {
+//   font-size: max(9.5px, min(10px, calc(100vw / 1440 * 10)));
+
+  @include breakpoint-down($xsm) { 
+    font-size: calc(100vw / 375 * 16);
+  }
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: $text;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $primary;
+}
+
+.pages-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10rem;
+  min-height: 100dvh;
+
+  main {
+    flex-grow: 1;
+  }
+}
+
+.lk-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  padding: 4.5rem 0;
+
+  main {
+    flex-grow: 1;
+  }
+}
+
+.lk-main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loader {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 28;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 29;
+    width: 48px;
+    height: 48px;
+    border: 5px solid #140c0c;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.loader-opacity {
+  @apply loader;
+
+  &::after {
+    @apply opacity-80;
+  }
+}
+
+.loader-opacity-fixed {
+  @apply fixed left-0 top-0 z-50 h-full w-full;
+
+  &::after {
+    content: "";
+    @apply absolute left-0 top-0 z-30 h-full w-full bg-white opacity-80;
+  }
+
+  &::before {
+    content: "";
+    @apply absolute left-1/2 top-1/2 z-[31] -translate-x-1/2 -translate-y-1/2;
+    width: 48px;
+    height: 48px;
+    border: 5px solid #140c0c;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  transition: all 0s ease-in-out 100000000000000000000000000s;
+}

@@ -1,0 +1,49 @@
+{% extends "layouts/base.twig" %}
+
+{% set properties = {
+  title: "Pages List",
+  script: "index"
+} %}
+
+{% set pages = [
+  {
+    title: "Авторизация / Вход",
+    href: "auth.html"
+  },
+	{
+		title: "Авторизация / Вход / Восстановление пароля / Отправка",
+    href: "auth-password-recovery-send.html"
+	},
+	{
+		title: "Авторизация / Вход / Восстановление пароля / Отправлено",
+    href: "auth-password-recovery-sent.html"
+	},
+	{
+		title: "Авторизация / Вход / Восстановление пароля / Создание нового пароля",
+    href: "auth-new-password-send.html"
+	},
+	{
+		title: "Авторизация / Вход / Восстановление пароля / Успешно",
+    href: "auth-password-recovery-success.html"
+	},
+	{
+		title: "Авторизация / Регистрация",
+    href: "registration.html"
+	},
+	{
+		title: "Авторизация / Регистрация / Успешно",
+    href: "registration-success.html"
+	},
+] %}
+
+{% block content %}
+	<div class="container">
+		<ul class="pages-list">
+			{% for page in pages %}
+				<li class="pages-item">
+					<a href="{{page.href}}" class="pages-link">{{page.title}}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endblock %}

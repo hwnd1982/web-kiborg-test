@@ -1,0 +1,37 @@
+@mixin center($position: "both") {
+  position: absolute;
+
+  @if $position== "vertical" {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if $position== "horizontal" {
+    left: 50%;
+    transform: translate(-50%);
+  } @else if $position== "both" {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin breakpoint-down($width) {
+  @media only screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin breakpoint-up($width) {
+  @media only screen and (min-width: ($width + 0.01)) {
+    @content;
+  }
+}
+
+@mixin hover() {
+  @media (hover: hover) {
+    transition: $transition-duration;
+
+    &:hover {
+      @content;
+    }
+  }
+}

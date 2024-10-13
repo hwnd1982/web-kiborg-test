@@ -1,0 +1,11 @@
+.icon {
+  height: auto;
+  flex-shrink: 0;
+  fill: currentColor;
+  
+  &_fill {
+    &_none {
+      fill: none;
+    }
+  }
+}

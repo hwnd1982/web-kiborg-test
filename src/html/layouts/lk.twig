@@ -1,0 +1,54 @@
+{% set defaultProperties = {
+  title: "",
+  script: "",
+} %}
+
+{% set properties = defaultProperties|merge(properties ?: {}) %}
+
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ properties.title }}</title>
+
+		<link rel="shortcut icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400..500&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="./css/main.bundle.css"/>
+	</head>
+	<body>
+		<div class="lk-wrapper{{properties.script ? ' ' ~ properties.script ~ '-page'}}">
+			<main class="relative">
+				<section class="lk-main">
+					<div class="container">
+						{% block content %}
+							{#  #}
+						{% endblock %}
+					</div>
+				</section>
+			</main>
+
+			<div class="notifications">
+				<div class="container notifications__container">
+					{% block notifications %}
+						{#  #}
+					{% endblock %}
+				</div>
+			</div>
+
+			<div id="modals">
+				{% block modals %}
+					{#  #}
+				{% endblock %}
+			</div>
+		</div>
+
+		<script src="./js/global.bundle.js"></script>
+		{% if properties.script %}
+			<script src="./js/{{ properties.script }}.bundle.js"></script>
+		{% endif %}
+	</body>
+</html>

@@ -1,0 +1,10 @@
+{% extends "layouts/lk.twig" %}
+
+{% set properties = {
+  title: "Авторизация / Вход",
+  script: "auth"
+} %}
+
+{% block content %}
+	{% include "./components/auth-card.twig" %}
+{% endblock %}

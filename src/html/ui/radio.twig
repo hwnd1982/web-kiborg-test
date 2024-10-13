@@ -1,0 +1,27 @@
+{% set props = ({
+  class: "",
+  validate: "",
+  name: "",
+  value: "",
+  children: "",
+  type: "radio",
+  errorRequired: "Это обязательное поле",
+})|merge(props ?: {}) %}
+
+<div class="radio js-radio">
+	<label class="radio__label{{ props.class ? " " ~ props.class }}">
+		<input class="radio__input visually-hidden js-radio-field" name="{{ props.name }}" value="{{ props.value }}" type="{{ props.type }}" {{ props.validate ? " data-validate='" ~ props.validate ~ "'" }}>
+
+		<span class="radio__control"></span>
+	</label>
+	<div class="radio__content">
+		<span class="">{{ props.children }}</>
+		{% if props.validate and props.errorRequired %}
+			<span class="radio__errors">
+				{% if props.errorRequired %}
+					<p class="radio__error _required">{{ props.errorRequired }}</p>
+				{% endif %}
+			</span>
+		{% endif %}
+	</div>
+</div>
