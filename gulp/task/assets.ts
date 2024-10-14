@@ -6,6 +6,6 @@ import { app } from "../app";
  */
 export const assets: gulp.TaskFunction = () => {
   return app.gulp
-    .src(app.path.src.assets)
+    .src(app.path.src.assets, { encoding: false })
     .pipe(app.gulp.dest(app.path.build.assets));
 };

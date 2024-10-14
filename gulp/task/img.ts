@@ -12,7 +12,7 @@ import { app } from "../app";
 export const img = () => {
   return (
     app.gulp
-      .src(app.path.src.img)
+      .src(app.path.src.img, { encoding: false })
       .pipe(
         app.plugins.plumber(
           app.plugins.plumberNotifyHandler("Ошибка в картинках")
